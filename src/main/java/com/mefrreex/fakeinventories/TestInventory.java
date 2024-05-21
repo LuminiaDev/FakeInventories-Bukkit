@@ -9,14 +9,14 @@ public class TestInventory extends FakeInventory {
     public TestInventory() {
         super(InventoryType.CHEST, "Тайтл честа");
         this.setItem(0, new ItemStack(Material.ACACIA_LEAVES));
-        this.setItemHandler(0, (player) -> {
-            player.sendMessage("Item clicked!");
+        this.setItemHandler(0, (player, slot, oldItem, newItem, event) -> {
+            System.out.println("Item clicked!\nSlot: " + slot + ", \nOld Item: " + oldItem + ", \nNew Item: " + newItem + ", \nAction: " + event.getAction());
         });
-        this.setOpenHandler((player) -> {
-            player.sendMessage("Inventory opened!");
+        this.setOpenHandler((player, event) -> {
+            System.out.println("Inventory opened!");
         });
-        this.setCloseHandler((player) -> {
-            player.sendMessage("Inventory closed!");
+        this.setCloseHandler((player, event) -> {
+            System.out.println("Inventory closed!");
         });
     }
 }

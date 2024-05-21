@@ -16,182 +16,182 @@ import java.util.List;
 import java.util.ListIterator;
 
 @Getter
-public class FakeInventoryAdapter implements Inventory {
+public abstract class FakeInventoryAdapter implements Inventory {
 
-    protected Inventory inventory;
+    protected abstract @NotNull Inventory getInventory();
 
     @Override
     public int getSize() {
-        return inventory.getSize();
+        return this.getInventory().getSize();
     }
 
     @Override
     public int getMaxStackSize() {
-        return inventory.getMaxStackSize();
+        return this.getInventory().getMaxStackSize();
     }
 
     @Override
     public void setMaxStackSize(int i) {
-        inventory.setMaxStackSize(i);
+        this.getInventory().setMaxStackSize(i);
     }
 
     @Override
     public @Nullable ItemStack getItem(int i) {
-        return inventory.getItem(i);
+        return this.getInventory().getItem(i);
     }
 
     @Override
     public void setItem(int i, @Nullable ItemStack itemStack) {
-        inventory.setItem(i, itemStack);
+        this.getInventory().setItem(i, itemStack);
     }
 
     @Override
     public @NotNull HashMap<Integer, ItemStack> addItem(@NotNull ItemStack... itemStacks) throws IllegalArgumentException {
-        return inventory.addItem(itemStacks);
+        return this.getInventory().addItem(itemStacks);
     }
 
     @Override
     public @NotNull HashMap<Integer, ItemStack> removeItem(@NotNull ItemStack... itemStacks) throws IllegalArgumentException {
-        return inventory.removeItem(itemStacks);
+        return this.getInventory().removeItem(itemStacks);
     }
 
     @Override
     public @NotNull HashMap<Integer, ItemStack> removeItemAnySlot(@NotNull ItemStack... itemStacks) throws IllegalArgumentException {
-        return inventory.removeItemAnySlot(itemStacks);
+        return this.getInventory().removeItemAnySlot(itemStacks);
     }
 
     @Override
     public @Nullable ItemStack @NotNull [] getContents() {
-        return inventory.getContents();
+        return this.getInventory().getContents();
     }
 
     @Override
     public void setContents(@Nullable ItemStack @NotNull [] itemStacks) throws IllegalArgumentException {
-        inventory.setContents(itemStacks);
+        this.getInventory().setContents(itemStacks);
     }
 
     @Override
     public @Nullable ItemStack @NotNull [] getStorageContents() {
-        return inventory.getStorageContents();
+        return this.getInventory().getStorageContents();
     }
 
     @Override
     public void setStorageContents(@Nullable ItemStack @NotNull [] itemStacks) throws IllegalArgumentException {
-        inventory.setStorageContents(itemStacks);
+        this.getInventory().setStorageContents(itemStacks);
     }
 
     @Override
     public boolean contains(@NotNull Material material) throws IllegalArgumentException {
-        return inventory.contains(material);
+        return this.getInventory().contains(material);
     }
 
     @Override
     public boolean contains(@Nullable ItemStack itemStack) {
-        return inventory.contains(itemStack);
+        return this.getInventory().contains(itemStack);
     }
 
     @Override
     public boolean contains(@NotNull Material material, int i) throws IllegalArgumentException {
-        return inventory.contains(material, i);
+        return this.getInventory().contains(material, i);
     }
 
     @Override
     public boolean contains(@Nullable ItemStack itemStack, int i) {
-        return inventory.contains(itemStack, i);
+        return this.getInventory().contains(itemStack, i);
     }
 
     @Override
     public boolean containsAtLeast(@Nullable ItemStack itemStack, int i) {
-        return inventory.containsAtLeast(itemStack, i);
+        return this.getInventory().containsAtLeast(itemStack, i);
     }
 
     @Override
     public @NotNull HashMap<Integer, ? extends ItemStack> all(@NotNull Material material) throws IllegalArgumentException {
-        return inventory.all(material);
+        return this.getInventory().all(material);
     }
 
     @Override
     public @NotNull HashMap<Integer, ? extends ItemStack> all(@Nullable ItemStack itemStack) {
-        return inventory.all(itemStack);
+        return this.getInventory().all(itemStack);
     }
 
     @Override
     public int first(@NotNull Material material) throws IllegalArgumentException {
-        return inventory.first(material);
+        return this.getInventory().first(material);
     }
 
     @Override
     public int first(@NotNull ItemStack itemStack) {
-        return inventory.first(itemStack);
+        return this.getInventory().first(itemStack);
     }
 
     @Override
     public int firstEmpty() {
-        return inventory.firstEmpty();
+        return this.getInventory().firstEmpty();
     }
 
     @Override
     public boolean isEmpty() {
-        return inventory.isEmpty();
+        return this.getInventory().isEmpty();
     }
 
     @Override
     public void remove(@NotNull Material material) throws IllegalArgumentException {
-        inventory.remove(material);
+        this.getInventory().remove(material);
     }
 
     @Override
     public void remove(@NotNull ItemStack itemStack) {
-        inventory.remove(itemStack);
+        this.getInventory().remove(itemStack);
     }
 
     @Override
     public void clear(int i) {
-        inventory.clear(i);
+        this.getInventory().clear(i);
     }
 
     @Override
     public void clear() {
-        inventory.clear();
+        this.getInventory().clear();
     }
 
     @Override
     public int close() {
-        return inventory.close();
+        return this.getInventory().close();
     }
 
     @Override
     public @NotNull List<HumanEntity> getViewers() {
-        return inventory.getViewers();
+        return this.getInventory().getViewers();
     }
 
     @Override
     public @NotNull InventoryType getType() {
-        return inventory.getType();
+        return this.getInventory().getType();
     }
 
     @Override
     public @Nullable InventoryHolder getHolder() {
-        return inventory.getHolder();
+        return this.getInventory().getHolder();
     }
 
     @Override
     public @Nullable InventoryHolder getHolder(boolean b) {
-        return inventory.getHolder(b);
+        return this.getInventory().getHolder(b);
     }
 
     @Override
     public @NotNull ListIterator<ItemStack> iterator() {
-        return inventory.iterator();
+        return this.getInventory().iterator();
     }
 
     @Override
     public @NotNull ListIterator<ItemStack> iterator(int i) {
-        return inventory.iterator(i);
+        return this.getInventory().iterator(i);
     }
 
     @Override
     public @Nullable Location getLocation() {
-        return inventory.getLocation();
+        return this.getInventory().getLocation();
     }
 }
