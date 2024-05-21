@@ -9,6 +9,8 @@ import com.mefrreex.fakeinventories.handler.FakeInventoryItemHandler;
 import com.mefrreex.fakeinventories.handler.FakeInventoryOpenHandler;
 import lombok.Setter;
 import lombok.Getter;
+import org.bukkit.inventory.InventoryHolder;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +36,7 @@ public class FakeInventory extends FakeInventoryAdapter {
     }
 
     public FakeInventory(InventoryType inventoryType, Component title) {
-        super(Bukkit.createInventory(null, inventoryType, title));
+        inventory = Bukkit.createInventory(new FakeInventoryHolder(this), inventoryType, title);
         this.inventoryType = inventoryType;
         this.title = title;
     }

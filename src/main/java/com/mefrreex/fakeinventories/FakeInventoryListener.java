@@ -14,28 +14,28 @@ public class FakeInventoryListener implements Listener {
 
     @EventHandler
     public void onInventoryOpen(InventoryOpenEvent event) {
-        if (event.getInventory() instanceof FakeInventory inventory) {
+        if(event.getInventory().getHolder() instanceof FakeInventoryHolder holder) {
             if (event.getView().getPlayer() instanceof Player player) {
-                inventory.onOpen(player);
+                holder.getInventory().onOpen(player);
             }
         }
     }
 
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent event) {
-        if (event.getInventory() instanceof FakeInventory inventory) {
+        if(event.getInventory().getHolder() instanceof FakeInventoryHolder holder) {
             if (event.getView().getPlayer() instanceof Player player) {
-                inventory.onClose(player);
+                holder.getInventory().onClose(player);
             }
         }
     }
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
-        if (event.getInventory() instanceof FakeInventory inventory) {
+        if(event.getInventory().getHolder() instanceof FakeInventoryHolder holder) {
             if (event.getView().getPlayer() instanceof Player player) {
-                Map<Integer, FakeInventoryItemHandler> handlers = inventory.getItemHandlers();
-                FakeInventoryItemHandler handler = handlers.getOrDefault(event.getSlot(), inventory.getDefaultItemHandler());
+                Map<Integer, FakeInventoryItemHandler> handlers = holder.getInventory().getItemHandlers();
+                FakeInventoryItemHandler handler = handlers.getOrDefault(event.getSlot(), holder.getInventory().getDefaultItemHandler());
                 if (handler != null) {
                     handler.handle(player);
                 }

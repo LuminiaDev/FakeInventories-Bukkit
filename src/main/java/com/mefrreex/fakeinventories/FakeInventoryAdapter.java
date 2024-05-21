@@ -18,11 +18,7 @@ import java.util.ListIterator;
 @Getter
 public class FakeInventoryAdapter implements Inventory {
 
-    private final Inventory inventory;
-
-    public FakeInventoryAdapter(Inventory inventory) {
-        this.inventory = inventory;
-    }
+    protected Inventory inventory;
 
     @Override
     public int getSize() {

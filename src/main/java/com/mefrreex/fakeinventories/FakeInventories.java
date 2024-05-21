@@ -16,6 +16,7 @@ public class FakeInventories extends JavaPlugin {
             public boolean execute(@NotNull CommandSender commandSender, @NotNull String s, @NotNull String[] strings) {
                 if (commandSender instanceof Player player) {
                     TestInventory testInventory = new TestInventory();
+                    testInventory.getHolder();
                     testInventory.open(player);
                 }
                 return true;
