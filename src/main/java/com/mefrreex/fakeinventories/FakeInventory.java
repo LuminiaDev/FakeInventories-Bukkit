@@ -11,11 +11,11 @@ import net.kyori.adventure.text.Component;
 import com.mefrreex.fakeinventories.handler.FakeInventoryCloseHandler;
 import com.mefrreex.fakeinventories.handler.FakeInventoryItemHandler;
 import com.mefrreex.fakeinventories.handler.FakeInventoryOpenHandler;
-import lombok.Setter;
-import lombok.Getter;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import lombok.Setter;
+import lombok.Getter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,8 +30,8 @@ public class FakeInventory extends FakeInventoryAdapter {
 
     private FakeInventoryItemHandler defaultItemHandler = (player, slot, oldItem, newItem, event) -> {};
     private final Map<Integer, FakeInventoryItemHandler> itemHandlers = new HashMap<>();
-    private FakeInventoryOpenHandler openHandler;
-    private FakeInventoryCloseHandler closeHandler;
+    private FakeInventoryOpenHandler openHandler = (player, event) -> {};
+    private FakeInventoryCloseHandler closeHandler = (player, event) -> {};
 
     public FakeInventory(InventoryType inventoryType) {
         this(inventoryType, inventoryType.defaultTitle());
@@ -42,7 +42,21 @@ public class FakeInventory extends FakeInventoryAdapter {
     }
 
     public FakeInventory(InventoryType inventoryType, Component title) {
-        this.inventory = Bukkit.createInventory(new FakeInventoryHolder(this), inventoryType, title);
+        this(inventoryType, null, title);
+    }
+
+    public FakeInventory(int size, String title) {
+        this(InventoryType.CHEST, size, Component.text(title));
+    }
+
+    public FakeInventory(int size, Component title) {
+        this(InventoryType.CHEST, size, title);
+    }
+
+    private FakeInventory(InventoryType inventoryType, Integer size, Component title) {
+        this.inventory = size == null ?
+                Bukkit.createInventory(new FakeInventoryHolder(this), inventoryType, title) :
+                Bukkit.createInventory(new FakeInventoryHolder(this), size, title);
         this.inventoryType = inventoryType;
         this.title = title;
     }
