@@ -61,6 +61,7 @@ public class FakeInventory extends FakeInventoryAdapter {
         this.title = title;
     }
 
+    @Override
     protected @NotNull Inventory getInventory() {
         return inventory;
     }
