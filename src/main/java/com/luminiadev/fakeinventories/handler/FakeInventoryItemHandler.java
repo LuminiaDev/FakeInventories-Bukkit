@@ -1,4 +1,4 @@
-package com.mefrreex.fakeinventories.handler;
+package com.luminiadev.fakeinventories.handler;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;

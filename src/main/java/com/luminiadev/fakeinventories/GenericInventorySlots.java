@@ -1,4 +1,4 @@
-package com.mefrreex.fakeinventories;
+package com.luminiadev.fakeinventories;
 
 public interface GenericInventorySlots {
     int TWIN = 9;

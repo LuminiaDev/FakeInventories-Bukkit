@@ -1,4 +1,4 @@
-package com.mefrreex.fakeinventories;
+package com.luminiadev.fakeinventories;
 
 import org.bukkit.plugin.java.JavaPlugin;
 

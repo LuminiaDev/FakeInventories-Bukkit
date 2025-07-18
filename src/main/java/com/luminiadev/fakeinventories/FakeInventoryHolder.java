@@ -1,4 +1,4 @@
-package com.mefrreex.fakeinventories;
+package com.luminiadev.fakeinventories;
 
 import org.bukkit.inventory.InventoryHolder;
 import org.jetbrains.annotations.NotNull;

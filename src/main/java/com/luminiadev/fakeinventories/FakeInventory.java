@@ -1,4 +1,4 @@
-package com.mefrreex.fakeinventories;
+package com.luminiadev.fakeinventories;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -8,9 +8,9 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.inventory.InventoryType;
 import net.kyori.adventure.text.Component;
-import com.mefrreex.fakeinventories.handler.FakeInventoryCloseHandler;
-import com.mefrreex.fakeinventories.handler.FakeInventoryItemHandler;
-import com.mefrreex.fakeinventories.handler.FakeInventoryOpenHandler;
+import com.luminiadev.fakeinventories.handler.FakeInventoryCloseHandler;
+import com.luminiadev.fakeinventories.handler.FakeInventoryItemHandler;
+import com.luminiadev.fakeinventories.handler.FakeInventoryOpenHandler;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
