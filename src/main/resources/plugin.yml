@@ -1,5 +1,5 @@
 name: "${project.name}"
 version: "${project.version}"
 api-version: '1.20'
-author: "MEFRREEX"
-main: com.mefrreex.fakeinventories.FakeInventories
+author: ["MEFRREEX", "koshak_mine"]
+main: com.luminiadev.fakeinventories.FakeInventories

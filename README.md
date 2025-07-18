@@ -1,4 +1,5 @@
 # FakeInventories
+Simple FakeInventories plugin for Bukkit (Paper) based Minecraft Servers
 
 ## 🛠 Example of usage
 
