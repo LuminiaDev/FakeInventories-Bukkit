@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    `maven-publish`
 }
 
 group = "com.luminiadev.fakeinventories.bukkit"
@@ -33,5 +34,26 @@ tasks.withType<Javadoc> {
 tasks.withType<ProcessResources> {
     filesMatching("plugin.yml") {
         expand(project.properties)
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = project.group.toString()
+            artifactId = project.name
+            version = project.version.toString()
+            from(components["java"])
+        }
+    }
+    repositories {
+        maven {
+            name = "luminiadev"
+            url = uri("https://repo.luminiadev.com/snapshots")
+            credentials {
+                username = System.getenv("MAVEN_USERNAME")
+                password = System.getenv("MAVEN_PASSWORD")
+            }
+        }
     }
 }
